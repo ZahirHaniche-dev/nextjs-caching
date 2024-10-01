@@ -9,7 +9,7 @@ import { unstable_noStore } from 'next/cache';
 //export const dynamic = 'force-dynamic';
 
 
-export default function MessagesPage() {
+export default async function MessagesPage() {
   // Ne pas mettre en cache juste sur ce module
  // unstable_noStore();
  // const response = await fetch('http://localhost:8080/messages'/*, {
@@ -19,7 +19,7 @@ export default function MessagesPage() {
   //}*/ );
   // messages = await response.json();
 
-  const messages = getMessages();
+  const messages = await getMessages();
 
   if (!messages || messages.length === 0) {
     return <p>No messages found</p>;
